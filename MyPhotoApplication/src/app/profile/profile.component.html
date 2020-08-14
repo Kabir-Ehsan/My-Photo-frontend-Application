@@ -1,0 +1,33 @@
+
+
+<!--h1>{{title}}</h1>
+
+<img [src]="imageUrl" width ="300">
+
+<br>
+<input type="button" value = "Click to increment view" (click) = "incrementCount()">
+
+<p>Counter: {{viewCount}}</p>
+
+<div>
+    <input type ="text" [(ngModel)]="name">
+    <p>hello {{name}} </p>
+</div>
+
+<ul>
+    <li *ngFor = "let content of list">{{content}}</li>
+</ul-->
+
+<div class="card text-center" *ngIf="user">
+    <div class="card-header">
+      {{user.name}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{user.emailAddress}}</h5>
+      <img [src]="user.profilePhotoUrl" width = "200" class="rounded-circle">
+    </div>
+    <div class="card-footer text-muted">
+      --
+    </div>
+</div>
+

@@ -1,0 +1,49 @@
+This is the App component HTML
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">My Photo Application</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto" *ngIf="userService.user | async">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['albums/recent']">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['profile/me']">Profile <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['albums/me']">Album <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <ul class="navbar-nav mr-auto" *ngIf="!(userService.user | async)">
+        <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['login']">Sign In/Sign Up <span class="sr-only">(current)</span></a>
+        </li>      
+      </ul>
+    </div>
+  </nav>
+  <div class="float-right" style="padding-right: 30px; padding-top: 20px;">
+    <button class="btn btn-success" (click)="logOut()" *ngIf="userService.user | async">Logout</button>
+  </div>
+ 
+
+  <div *ngFor = "let message of messageService.messages">
+    <div   style="z-index: -50;" class="alert alert-danger" role="alert">
+      {{message}}
+    </div>
+  </div> 
+
+  <div *ngFor = "let success of messageService.success">
+    <div   style="z-index: -50;" class="alert alert-success" role="alert">
+      {{success}}
+    </div>
+  </div>
+
+  <div>
+  <button class="btn btn-info" *ngIf="(messageService.success.length)||(messageService.messages.length)" (click) = clearMessages()>Clear</button>
+  </div>
+  <!--button class="btn btn-info" *ngIf="(messageService.messages.length)" (click) = clearMessages()>Clear</button-->
+<router-outlet></router-outlet>

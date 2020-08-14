@@ -1,0 +1,30 @@
+
+
+<!--input type="file" accept="image/*">
+<input type="button" value="upload-picture"-->
+
+<h2>Upload New Photos Here</h2>
+
+<div style="float:right; padding-right: 20px; padding-top: 40px; position:absolute; right:0px;">
+    <a [routerLink]="['/album', albumId]" class="btn btn-success">Go Back To Album Details</a>
+</div>
+<br> <br> <br> <br>
+
+<div style="width: 500px; margin: auto;">
+    <div class="form-signin">
+        <!--img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"-->
+        <h1 class="h3 mb-3 font-weight-normal">Upload Your Photo</h1>
+        <!--label for="Photo Owner">Created By</label>
+        <input type="text" class="form-control" [(ngModel)]="createdBy" placeholder="Enter Your Name" required autofocus-->
+    </div>
+
+<div class="form-signin">
+    <label for="Photo">Upload Photo</label>
+    <!--input type="file" class="form-control-file" [disabled] = "!createdBy" (change) ="uploadPhoto($event.target.files[0])" placeholder="Upload"-->
+    <input type="file" class="form-control-file" (change) ="uploadPhoto($event.target.files[0])" placeholder="Upload">
+</div>
+</div>
+
+<br>
+
+

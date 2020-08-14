@@ -1,0 +1,80 @@
+<p>login works!</p>
+
+<!--div>
+    UserName: <input type ="email" [(ngModel)]="name">
+    Password: <input type ="password" [(ngModel)]="pass">
+    <br>
+    <input type="button" value="Login">
+</div-->
+
+<div style="width: 500px; margin: auto;" *ngIf = "signInVisible ; else signUpForm">
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active">Sign In</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="makeSignUpVisible()">Sign Up</a>
+    </li>
+</ul>
+
+
+
+    <div class="form-signin">
+    <!--img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"-->
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="inputEmail">Email address</label>
+    <input type="email" id="inputEmail" class="form-control" [(ngModel)]="email" placeholder="Enter Email address" required autofocus>
+    <label for="inputPassword">Password</label>
+    <input type="password" id="inputPassword" class="form-control" [(ngModel)]="password" placeholder="Enter Password" required>
+    <!--div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div-->
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="signIn()">Sign in</button>
+
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+    </div>
+   
+</div>
+
+
+<ng-template #signUpForm>
+    <div style="width: 500px; margin: auto;">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link" (click)="makeSignInVisible()">Sign In</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active">Sign Up</a>
+            </li>
+        </ul>
+        
+        
+        
+            <div class="form-signin">
+            <!--img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"-->
+            
+                <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+
+                <label for="inputEmail">Name</label>
+                <input type="text" id="inputEmail" class="form-control" [(ngModel)]="name" placeholder="Enter Your Name" required autofocus>
+
+                <label for="inputEmail">Email address</label>
+                <input type="email" id="inputEmail" class="form-control" [(ngModel)]="email" placeholder="Enter Email address" required autofocus>
+
+                <label for="inputPassword">Password</label>
+                <input type="password" id="inputPassword" class="form-control" [(ngModel)]="password" placeholder="Set a Password" required>
+
+            <!--div class="checkbox mb-3">
+              <label>
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+            </div-->
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="signUp()">Sign Up</button>
+                <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+            </div>
+        
+        </div>
+</ng-template>
